@@ -6,7 +6,7 @@ spring:
     password: Danb1235!!
   mvc:
     view:
-      prefix: /WEB-INF/views/
+      prefix: /WEB-INF/views/biz/
       suffix: .jsp
   application:
     name: cyo
@@ -16,5 +16,7 @@ spring:
       ddl-auto: none
       naming:
         physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  mybatis:
+   type-aliases-package: com.example.cyo
 server:
   port: '8000'
