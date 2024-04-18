@@ -22,6 +22,15 @@ public class SpringConfig {
 	BoardMapper boardMapper;
 	
 	
+	@Bean
+	public BoardService boardService() {
+		return new BoardService(boardRepository());
+	}
+	
+	@Bean
+	public BoardRepository boardRepository() {
+		return new MybatisMapperBoardRepository(boardMapper);
+	}
 
 	 
 	

@@ -31,6 +31,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<BOARD_INFO> allBoardList = boardService.allBoardList();
+		mv.addObject("allBoardList",allBoardList);
 		
 		return mv;
 		

@@ -1,1 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.exmaple.cyo.repository.mapper.boardMapper">
+	
+	<select id="allBoardList" resultType="BOARD_INFO" parameterType="hashMap">
+		select 
+			boardSeq , boardWriter , boardSubject , boardContent , insDate
+		from 
+			board
+		order by boardSeq desc	
+	</select>
+
+</mapper>

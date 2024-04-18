@@ -6,7 +6,9 @@ import com.example.cyo.domain.BOARD_INFO;
 
 import com.example.cyo.repository.BoardRepository;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class BoardService {
 	
 	private final BoardRepository boardRepository;

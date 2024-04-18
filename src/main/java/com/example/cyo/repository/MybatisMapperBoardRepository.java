@@ -16,8 +16,8 @@ public class MybatisMapperBoardRepository implements BoardRepository {
 	
 	@Override
 	public List<BOARD_INFO> allBoardList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<BOARD_INFO> list = boardMapper.allBoardList();
+		return list;
 	}
 
 }
