@@ -6,12 +6,16 @@ import java.util.List;
 import com.example.cyo.domain.BOARD_INFO;
 import com.example.cyo.repository.mapper.BoardMapper;
 
-public class MybatisBoardRepository implements BoardRepository {
+public class MybatisMapperBoardRepository implements BoardRepository {
 
-	//private final BoardMapper boardMapper;
+	private final BoardMapper boardMapper;
+	
+	public MybatisMapperBoardRepository(BoardMapper boardMapper) {
+		this.boardMapper = boardMapper;
+	}
 	
 	@Override
-	public List<BOARD_INFO> allBoardList(HashMap allBoardList) {
+	public List<BOARD_INFO> allBoardList() {
 		// TODO Auto-generated method stub
 		return null;
 	}

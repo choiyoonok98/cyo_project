@@ -6,5 +6,5 @@ import java.util.List;
 import com.example.cyo.domain.BOARD_INFO;
 
 public interface BoardRepository {
-	List<BOARD_INFO> allBoardList(HashMap allBoardList);
+	List<BOARD_INFO> allBoardList();
 }

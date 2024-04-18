@@ -9,5 +9,5 @@ import com.example.cyo.domain.BOARD_INFO;
 
 @Mapper
 public interface BoardMapper {
-	List<BOARD_INFO> allBoardList(HashMap allBoardList);
+	List<BOARD_INFO> allBoardList();
 }

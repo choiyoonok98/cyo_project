@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import com.example.cyo.controller.BoardController;
 import com.example.cyo.repository.BoardRepository;
-import com.example.cyo.repository.MybatisBoardRepository;
+import com.example.cyo.repository.MybatisMapperBoardRepository;
 import com.example.cyo.repository.mapper.BoardMapper;
 import com.example.cyo.service.BoardService;
 
@@ -21,10 +21,8 @@ public class SpringConfig {
 	@Autowired
 	BoardMapper boardMapper;
 	
-	/*
-	 * @Bean public BoardRepository vacationRepository() {
-	 * log.info("##SpringConfig vacationRepository"); return new
-	 * MybatisBoardRepository(boardMapper); }
-	 */
+	
+
+	 
 	
 }
