@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CyoApplication {
 
 	public static void main(String[] args) {
+		System.out.println("cyoapplication");
 		SpringApplication.run(CyoApplication.class, args);
 	}
 

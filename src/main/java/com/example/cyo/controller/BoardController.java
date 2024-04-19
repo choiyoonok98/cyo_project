@@ -27,15 +27,25 @@ public class BoardController {
 		this.boardService = boardService;
 	}
 	
+	/*
+	 * @RequestMapping("/board/allBoardList") public ModelAndView
+	 * allBoardList(HttpServletRequest request, BOARD_INFO boardInfo, Model model) {
+	 * ModelAndView mv = new ModelAndView();
+	 * 
+	 * List<BOARD_INFO> allBoardList = boardService.allBoardList();
+	 * mv.addObject("allBoardList",allBoardList);
+	 * 
+	 * return mv;
+	 * 
+	 * }
+	 */
+	
 	@RequestMapping("/board/allBoardList")
-	public ModelAndView allBoardList(HttpServletRequest request,  BOARD_INFO boardInfo, Model model) {
-		ModelAndView mv = new ModelAndView();
-		
-		List<BOARD_INFO> allBoardList = boardService.allBoardList();
-		mv.addObject("allBoardList",allBoardList);
-		
-		return mv;
-		
-	}
+    public String allBoardList(Model model) {
+        List<BOARD_INFO> allBoardList = boardService.allBoardList();
+        model.addAttribute("allBoardList", allBoardList);
+        
+        return "allBoardList"; // 반환하는 문자열은 해당 뷰의 이름입니다.
+    }
 	
 }

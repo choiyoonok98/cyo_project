@@ -1,4 +1,9 @@
 spring:
+  thymeleaf:
+     cache: false
+     prefix: classpath:/templates/
+     suffix: .html
+     #view-names: thymeleaf/*    
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://dev.danbplus.com:53306/danbplusSTS_CYO?UTC&allowPublickeyRetrieval=true
