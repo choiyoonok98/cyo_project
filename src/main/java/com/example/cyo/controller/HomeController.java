@@ -19,26 +19,21 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 	
+	//@RequestMapping(value={"/", "/index"}) 
+    //private ModelAndView main(HttpServletRequest request, Model model) { 
+    //   ModelAndView mv = new ModelAndView(); 
+    //    System.out.println("board/allboardList 호출");
+    //    mv.setViewName("allBoardList"); 
+    //    return mv;
+    //}
 	
-	/*
-	 * @RequestMapping(value="/") public String index() {
-	 * System.out.println("index 호출"); return "allBoardList"; }
-	 */
-	 
+	@RequestMapping(value={"/", "/index"}) 
+    public ModelAndView main(HttpServletRequest request) { 
+        ModelAndView mv = new ModelAndView(); 
+        log.info("board/allboardList 호출");
+        mv.setViewName("allBoardList"); 
+        return mv;
+    }
 	
-	 @RequestMapping(value={"/" , "/index"}) 
-	 private ModelAndView main(HttpServletRequest request, Model model) { 
-			
-		 /*  1.
-			 * ModelAndView mv = new ModelAndView();
-			 * System.out.println("board/allboardList 호출"); mv.setViewName("allBoardList");
-			 * return mv;
-	     */
-		 
-		 //2
-		 return new ModelAndView("redirect:/board/allBoardList");
-	 }
-	 
-	 
 	 
 }

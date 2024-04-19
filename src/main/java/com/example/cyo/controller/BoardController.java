@@ -41,11 +41,12 @@ public class BoardController {
 	 */
 	
 	@RequestMapping("/board/allBoardList")
-    public String allBoardList(Model model) {
+    public ModelAndView allBoardList(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView();
         List<BOARD_INFO> allBoardList = boardService.allBoardList();
-        model.addAttribute("allBoardList", allBoardList);
-        
-        return "allBoardList"; // 반환하는 문자열은 해당 뷰의 이름입니다.
+        mv.addObject("allBoardList", allBoardList);
+        mv.setViewName("allBoardList"); // 뷰 이름 설정
+        return mv;
     }
 	
 }
