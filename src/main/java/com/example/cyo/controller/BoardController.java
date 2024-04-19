@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-@Controller
+@RestController
 public class BoardController {
 	
 	private final BoardService boardService;
@@ -45,6 +46,7 @@ public class BoardController {
         ModelAndView mv = new ModelAndView();
         List<BOARD_INFO> allBoardList = boardService.allBoardList();
         mv.addObject("allBoardList", allBoardList);
+        log.info("boardController에서 호출");
         mv.setViewName("allBoardList"); // 뷰 이름 설정
         return mv;
     }

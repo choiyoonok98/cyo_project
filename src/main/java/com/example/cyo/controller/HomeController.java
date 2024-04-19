@@ -2,21 +2,17 @@ package com.example.cyo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-import java.util.logging.Logger;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-@Controller
+@RestController
 public class HomeController {
 	
 	//@RequestMapping(value={"/", "/index"}) 
