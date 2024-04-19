@@ -27,7 +27,7 @@ public class HomeController {
     public ModelAndView main(HttpServletRequest request) { 
         ModelAndView mv = new ModelAndView(); 
         log.info("board/allboardList 호출");
-        mv.setViewName("allBoardList"); 
+        mv.setViewName("/board/allBoardList"); 
         return mv;
     }
 	

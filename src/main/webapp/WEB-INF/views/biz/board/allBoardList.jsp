@@ -7,6 +7,6 @@
 <title>allBoardListTest</title>
 </head>
 <body>
-
+	<h1>controller »Æ¿Œ<h1>
 </body>
 </html>
