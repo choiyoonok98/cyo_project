@@ -1,6 +1,6 @@
 package com.example.cyo.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 

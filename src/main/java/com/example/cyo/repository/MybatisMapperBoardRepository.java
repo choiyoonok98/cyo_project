@@ -21,7 +21,14 @@ public class MybatisMapperBoardRepository implements BoardRepository {
 	@Override
 	public List<BOARD_INFO> allBoardList() {
 		List<BOARD_INFO> list = boardMapper.allBoardList();
-		log.info("mapper repository 호출");
+		log.info("mapper repository 게시글 리스트");
+		return list;
+	}
+
+	@Override
+	public List<BOARD_INFO> boardDetail(int boardSeq) {
+		List<BOARD_INFO> list = boardMapper.boardDetail(boardSeq);
+		log.info("mapper repository 게시글 상세");
 		return list;
 	}
 

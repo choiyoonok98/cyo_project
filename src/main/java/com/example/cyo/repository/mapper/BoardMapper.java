@@ -13,4 +13,5 @@ import lombok.extern.slf4j.Slf4j;
 @Mapper
 public interface BoardMapper {
 	List<BOARD_INFO> allBoardList();
+	List<BOARD_INFO> boardDetail(int boardSeq);
 }

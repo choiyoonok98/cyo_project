@@ -1,11 +1,13 @@
 package com.example.cyo.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,20 +30,8 @@ public class BoardController {
 		this.boardService = boardService;
 	}
 	
-	/*
-	 * @RequestMapping("/board/allBoardList") public ModelAndView
-	 * allBoardList(HttpServletRequest request, BOARD_INFO boardInfo, Model model) {
-	 * ModelAndView mv = new ModelAndView();
-	 * 
-	 * List<BOARD_INFO> allBoardList = boardService.allBoardList();
-	 * mv.addObject("allBoardList",allBoardList);
-	 * 
-	 * return mv;
-	 * 
-	 * }
-	 */
-	
-	@RequestMapping("/board/allBoardList")
+	//전체 게시글 리스트
+	@RequestMapping(value={"/", "/index" , "/board/allBoardList"})
     public ModelAndView allBoardList(HttpServletRequest request, Model model) {
         ModelAndView mv = new ModelAndView();
         List<BOARD_INFO> allBoardList = boardService.allBoardList();
@@ -51,5 +41,29 @@ public class BoardController {
         mv.setViewName("/board/allBoardList"); 
         return mv;
     }
+	
+	//게시글 상세
+	@ResponseBody
+	@RequestMapping("/board/boardDetail.view")
+	public ModelAndView boardDetail(HttpServletRequest request , Model model , String boardSeq) {
+		ModelAndView mv = new ModelAndView();
+		log.info("boardSeq =="+boardSeq);
+		int iBoardSeq = Integer.parseInt(boardSeq);
+		log.info("iBoardSeq =="+iBoardSeq);
+		List<BOARD_INFO> boardDetail = boardService.boardDetail(iBoardSeq);
+		log.info("boardDetail=="+boardDetail);
+		mv.addObject("boardDetail",boardDetail);
+		mv.addObject("boardSeq",boardSeq);
+		mv.setViewName("/board/boardDetail");
+		return mv;
+	}
+	
+	//게시글 상세
+		@RequestMapping("/test")
+		public ModelAndView test(HttpServletRequest request) {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("/board/boardDetail");
+			return mv;
+		}
 	
 }

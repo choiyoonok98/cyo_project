@@ -11,5 +11,13 @@
 			BOARD_INFO
 		order by boardSeq desc	
 	</select>
+	
+	<select id="boardDetail" resultType="BOARD_INFO" parameterType="hashMap">
+		select 
+			boardSeq , boardWriter , boardSubject , boardContent , insDate
+		from 
+			BOARD_INFO
+		where boardSeq = #{boardSeq}
+	</select>
 
 </mapper>

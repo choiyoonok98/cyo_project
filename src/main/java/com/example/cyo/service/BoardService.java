@@ -18,8 +18,13 @@ public class BoardService {
 	}
 
 	public List<BOARD_INFO> allBoardList() {
-		log.info("서비스 호출");
+		log.info("service 게시글 전체 리스트");
 		return boardRepository.allBoardList();
+	}
+
+	public List<BOARD_INFO> boardDetail(int boardSeq) {
+		log.info("service 게시글 번호로 게시글상세");
+		return boardRepository.boardDetail(boardSeq);
 	}
 
 	

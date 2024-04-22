@@ -23,13 +23,12 @@ public class HomeController {
     //    return mv;
     //}
 	
-	@RequestMapping(value={"/", "/index"}) 
-    public ModelAndView main(HttpServletRequest request) { 
-        ModelAndView mv = new ModelAndView(); 
-        log.info("board/allboardList 호출");
-        mv.setViewName("/board/allBoardList"); 
-        return mv;
-    }
+	/*
+	 * @RequestMapping(value={"/", "/index"}) public ModelAndView
+	 * main(HttpServletRequest request) { ModelAndView mv = new ModelAndView();
+	 * log.info("board/allboardList 호출"); mv.setViewName("/board/allBoardList");
+	 * return mv; }
+	 */
 	
 	 
 }
