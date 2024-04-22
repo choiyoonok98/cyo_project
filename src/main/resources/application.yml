@@ -1,14 +1,18 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://dev.danbplus.com:53306/danbplusSTS_CYO?UTC&allowPublickeyRetrieval=true
+    jdbc-url: jdbc:mysql://dev.danbplus.com:53306/danbplusSTS_CYO?UTC&allowPublickeyRetrieval=true
     username: danbplus
     password: Danb1235!!
+   
   mvc:
     view:
       prefix: /WEB-INF/views/biz/
       suffix: .jsp
-  application:
-    name: cyo
+    
+mybatis:
+  type-aliases-package: com.example.domain
+  mapper-locations: classpath:mapper/mybatis/*.xml
+  
 server:
   port: '8000'

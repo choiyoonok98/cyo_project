@@ -46,8 +46,9 @@ public class BoardController {
         ModelAndView mv = new ModelAndView();
         List<BOARD_INFO> allBoardList = boardService.allBoardList();
         mv.addObject("allBoardList", allBoardList);
-        log.info("boardController에서 호출");
-        mv.setViewName("allBoardList"); // 뷰 이름 설정
+        log.info("boardController"+ allBoardList);
+        
+        mv.setViewName("/board/allBoardList"); 
         return mv;
     }
 	

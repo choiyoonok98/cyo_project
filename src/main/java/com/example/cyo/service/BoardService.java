@@ -18,7 +18,7 @@ public class BoardService {
 	}
 
 	public List<BOARD_INFO> allBoardList() {
-		// TODO Auto-generated method stub
+		log.info("서비스 호출");
 		return boardRepository.allBoardList();
 	}
 

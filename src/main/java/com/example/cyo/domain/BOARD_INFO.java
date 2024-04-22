@@ -9,9 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="board")
+@Table(name="BOARD_INFO")
 
-@Alias("board")
+@Alias("BOARD_INFO")
 public class BOARD_INFO {
 
 	@Id
