@@ -22,12 +22,12 @@
 	</select>
 	
 	
-	<!-- <insert id="insertBoard" parameterType="java.util.Map">
+	<insert id="insert" parameterType="java.util.Map">
 	    INSERT INTO BOARD_INFO 
 	    	(boardSeq, boardWriter, boardSubject, boardContent, insDate, boardPw)
 	    VALUES 
 	    	(#{boardSeq}, #{boardWriter}, #{boardSubject}, #{boardContent}, #{insDate}, #{boardPw})
-	</insert> -->
+	</insert>
 
 
 </mapper>

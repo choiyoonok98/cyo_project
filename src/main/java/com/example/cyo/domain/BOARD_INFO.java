@@ -1,5 +1,6 @@
 package com.example.cyo.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
@@ -19,7 +20,8 @@ public class BOARD_INFO {
 	private String boardWriter; 	//작성자
 	private String boardSubject; 	//게시글 제목
 	private String boardContent; 	//게시글 내용
-	private Date insDate;			//게시글 등록일
+	private LocalDateTime insDate;			//게시글 등록일
+	private String boardPw;			//게시글 암호
 	
 	public int getBoardSeq() {
 		return boardSeq;
@@ -45,18 +47,27 @@ public class BOARD_INFO {
 	public void setBoardContent(String boardContent) {
 		this.boardContent = boardContent;
 	}
-	public Date getInsDate() {
+	public LocalDateTime getInsDate() {
 		return insDate;
 	}
-	public void setInsDate(Date insDate) {
-		this.insDate = insDate;
+	public void setInsDate(LocalDateTime currentDateTime) {
+		this.insDate = currentDateTime;
 	}
+	public String getBoardPw() {
+		return boardPw;
+	}
+	public void setBoardPw(String boardPw) {
+		this.boardPw = boardPw;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "BOARD_INFO [boardSeq=" + boardSeq + ", boardWriter=" + boardWriter + ", boardSubject=" + boardSubject
-				+ ", boardContent=" + boardContent + ", insDate=" + insDate + "]";
+				+ ", boardContent=" + boardContent + ", insDate=" + insDate + ", boardPw=" + boardPw + "]";
 	}
+	
+	
 	
 	
 }

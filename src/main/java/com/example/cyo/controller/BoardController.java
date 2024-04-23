@@ -1,5 +1,6 @@
 package com.example.cyo.controller;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
@@ -58,19 +59,32 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 등록
+	//게시글 상세
 	@ResponseBody
-	@RequestMapping("insert.act")
-    public String insert(BOARD_INFO boardInfo) {
-		String result = "게시글을 등록했습니다.";
-        try {
-        	boardService.insert(boardInfo);		//휴가신청 정보저장
-		}catch (Exception e) {
-			result = "게시글 등록중 에러발생:";
-			log.info(result + e.getMessage());
-			e.printStackTrace();
-		}
-        return result; 
-    }
+	@RequestMapping("/board/boardWrite.view")
+	public ModelAndView boardWrite(HttpServletRequest request , Model model , String boardSeq) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/board/boardWrite");
+		return mv;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/board/boardWrite.act")
+	public String insert(BOARD_INFO boardInfo) {
+	    log.info(boardInfo + "컨트롤러 게시글정보");
+	    // 현재 시간을 LocalDateTime으로 가져옴
+	    LocalDateTime currentDateTime = LocalDateTime.now();
+	    boardInfo.setInsDate(currentDateTime);
+
+	    String result = "게시글을 등록했습니다.";
+	    try {
+	        boardService.insert(boardInfo);    // 게시글 정보 저장
+	    } catch (Exception e) {
+	        result = "게시글 등록 중 에러 발생:";
+	        log.error(result + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return result;
+	}
 	
 }
