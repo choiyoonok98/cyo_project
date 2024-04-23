@@ -12,6 +12,7 @@
 		order by boardSeq desc	
 	</select>
 	
+	
 	<select id="boardDetail" resultType="BOARD_INFO" parameterType="hashMap">
 		select 
 			boardSeq , boardWriter , boardSubject , boardContent , insDate
@@ -19,5 +20,14 @@
 			BOARD_INFO
 		where boardSeq = #{boardSeq}
 	</select>
+	
+	
+	<!-- <insert id="insertBoard" parameterType="java.util.Map">
+	    INSERT INTO BOARD_INFO 
+	    	(boardSeq, boardWriter, boardSubject, boardContent, insDate, boardPw)
+	    VALUES 
+	    	(#{boardSeq}, #{boardWriter}, #{boardSubject}, #{boardContent}, #{insDate}, #{boardPw})
+	</insert> -->
+
 
 </mapper>

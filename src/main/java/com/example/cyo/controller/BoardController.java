@@ -58,12 +58,19 @@ public class BoardController {
 		return mv;
 	}
 	
-	//게시글 상세
-		@RequestMapping("/test")
-		public ModelAndView test(HttpServletRequest request) {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("/board/boardDetail");
-			return mv;
+	//게시글 등록
+	@ResponseBody
+	@RequestMapping("insert.act")
+    public String insert(BOARD_INFO boardInfo) {
+		String result = "게시글을 등록했습니다.";
+        try {
+        	boardService.insert(boardInfo);		//휴가신청 정보저장
+		}catch (Exception e) {
+			result = "게시글 등록중 에러발생:";
+			log.info(result + e.getMessage());
+			e.printStackTrace();
 		}
+        return result; 
+    }
 	
 }

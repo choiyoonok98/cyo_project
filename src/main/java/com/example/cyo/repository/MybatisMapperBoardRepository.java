@@ -32,4 +32,10 @@ public class MybatisMapperBoardRepository implements BoardRepository {
 		return list;
 	}
 
+	@Override
+	public BOARD_INFO insert(BOARD_INFO boardInfo) {
+		boardMapper.insert(boardInfo);
+		return boardInfo;
+	}
+
 }

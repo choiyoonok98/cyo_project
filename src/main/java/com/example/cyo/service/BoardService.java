@@ -27,5 +27,10 @@ public class BoardService {
 		return boardRepository.boardDetail(boardSeq);
 	}
 
+	public List<BOARD_INFO> insert(BOARD_INFO boardInfo) {
+		boardRepository.insert(boardInfo);
+		return boardRepository.allBoardList();
+	}
+
 	
 }
