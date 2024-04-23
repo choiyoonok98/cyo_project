@@ -15,7 +15,7 @@
 	
 	<select id="boardDetail" resultType="BOARD_INFO" parameterType="hashMap">
 		select 
-			boardSeq , boardWriter , boardSubject , boardContent , insDate
+			boardSeq , boardWriter , boardSubject , boardContent , insDate , boardPw
 		from 
 			BOARD_INFO
 		where boardSeq = #{boardSeq}
@@ -28,6 +28,23 @@
 	    VALUES 
 	    	(#{boardSeq}, #{boardWriter}, #{boardSubject}, #{boardContent}, #{insDate}, #{boardPw})
 	</insert>
+	
+	
+	<delete id="delete" parameterType="hashMap">
+		delete 
+			from BOARD_INFO 
+		where
+			boardSeq = #{boardSeq}
+	</delete>
 
+
+	<update id="update" parameterType="hashMap">
+		update
+			BOARD_INFO
+		SET
+			boardSubject = #{boardSubject} , boardContent = #{boardContent} , insDate = #{insDate} , boardWriter = #{boardWriter}
+		where
+			boardSeq = #{boardSeq}
+	</update>
 
 </mapper>

@@ -37,8 +37,6 @@ public class BoardController {
         ModelAndView mv = new ModelAndView();
         List<BOARD_INFO> allBoardList = boardService.allBoardList();
         mv.addObject("allBoardList", allBoardList);
-        log.info("boardController"+ allBoardList);
-        
         mv.setViewName("/board/allBoardList"); 
         return mv;
     }
@@ -48,18 +46,30 @@ public class BoardController {
 	@RequestMapping("/board/boardDetail.view")
 	public ModelAndView boardDetail(HttpServletRequest request , Model model , String boardSeq) {
 		ModelAndView mv = new ModelAndView();
-		log.info("boardSeq =="+boardSeq);
 		int iBoardSeq = Integer.parseInt(boardSeq);
-		log.info("iBoardSeq =="+iBoardSeq);
 		List<BOARD_INFO> boardDetail = boardService.boardDetail(iBoardSeq);
-		log.info("boardDetail=="+boardDetail);
+		log.info(boardDetail + "boardDetail");
 		mv.addObject("boardDetail",boardDetail);
 		mv.addObject("boardSeq",boardSeq);
 		mv.setViewName("/board/boardDetail");
 		return mv;
 	}
 	
-	//게시글 상세
+	
+	//게시글 수정화면
+	@ResponseBody
+	@RequestMapping("/board/boardUpdate.view")
+	public ModelAndView boardUpdate(HttpServletRequest request , Model model , String boardSeq) {
+		ModelAndView mv = new ModelAndView();
+		int iBoardSeq = Integer.parseInt(boardSeq);
+		List<BOARD_INFO> boardDetail = boardService.boardDetail(iBoardSeq);
+		mv.addObject("boardDetail",boardDetail);
+		mv.addObject("boardSeq",boardSeq);
+		mv.setViewName("/board/boardUpdate");
+		return mv;
+	}
+	
+	//게시글작성폼
 	@ResponseBody
 	@RequestMapping("/board/boardWrite.view")
 	public ModelAndView boardWrite(HttpServletRequest request , Model model , String boardSeq) {
@@ -68,6 +78,7 @@ public class BoardController {
 		return mv;
 	}
 	
+	//게시글작성
 	@ResponseBody
 	@RequestMapping("/board/boardWrite.act")
 	public String insert(BOARD_INFO boardInfo) {
@@ -81,6 +92,42 @@ public class BoardController {
 	        boardService.insert(boardInfo);    // 게시글 정보 저장
 	    } catch (Exception e) {
 	        result = "게시글 등록 중 에러 발생:";
+	        log.error(result + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return result;
+	}
+	
+	//게시글수정
+	@ResponseBody
+	@RequestMapping("/board/boardUpdate.act")
+	public String update(BOARD_INFO boardInfo) {
+	    log.info(boardInfo + "컨트롤러 게시글정보");
+	    // 현재 시간을 LocalDateTime으로 가져옴
+	    LocalDateTime currentDateTime = LocalDateTime.now();
+	    boardInfo.setInsDate(currentDateTime);
+	
+	    String result = "게시글을 수정했습니다.";
+	    try {
+	        boardService.update(boardInfo);    // 게시글 정보 저장
+	    } catch (Exception e) {
+	        result = "게시글 수정 중 에러 발생:";
+	        log.error(result + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return result;
+	}
+	
+	//게시글수정
+	@ResponseBody
+	@RequestMapping("/board/boardDelete.act")
+	public String delete(Integer boardSeq) {
+	    log.info(boardSeq + "삭제 게시글 일련번호");
+	    String result = "게시글을 삭제했습니다.";
+	    try {
+	        boardService.delete(boardSeq);    // 게시글 정보 저장
+	    } catch (Exception e) {
+	        result = "게시글 삭제 중 에러 발생:";
 	        log.error(result + e.getMessage());
 	        e.printStackTrace();
 	    }

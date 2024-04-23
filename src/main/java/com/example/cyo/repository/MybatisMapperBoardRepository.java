@@ -38,4 +38,16 @@ public class MybatisMapperBoardRepository implements BoardRepository {
 		return boardInfo;
 	}
 
+	@Override
+	public void delete(int boardSeq) {
+		boardMapper.delete(boardSeq);
+		
+	}
+
+	@Override
+	public void update(BOARD_INFO boardInfo) {
+		boardMapper.update(boardInfo);
+		
+	}
+
 }

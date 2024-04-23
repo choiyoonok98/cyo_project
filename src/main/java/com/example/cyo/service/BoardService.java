@@ -32,5 +32,14 @@ public class BoardService {
 		return boardRepository.allBoardList();
 	}
 
+	public void delete(int boardSeq) {
+		boardRepository.delete(boardSeq);
+	}
+
+	public void update(BOARD_INFO boardInfo) {
+		boardRepository.update(boardInfo);
+		
+	}
+
 	
 }
