@@ -71,7 +71,6 @@
                 <tr>
                     <th>작성자</th>
                     <th>제목</th>
-                    <th>내용</th>
                     <th>작성일자</th>
                 </tr>
             </thead>
@@ -81,8 +80,21 @@
                     <tr>
                         <td>${board.boardWriter}</td>
                         <td>${board.boardSubject}</td>
-                        <td>${board.boardContent}</td>
                         <td>${board.insDate}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>내용</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="board" items="${boardDetail}">
+                    <tr>
+                        <td>${board.boardContent}</td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -141,7 +141,7 @@
                data: boardInfo , // JSON 형태로 데이터 전달
                success: function(response) {
                    // 성공적으로 글이 작성되었을 때 처리
-                   alert("글이 성공적으로 작성되었습니다.");
+                   alert(response);
                    window.location.href = "/";
                },
                error: function(xhr, status, error) {

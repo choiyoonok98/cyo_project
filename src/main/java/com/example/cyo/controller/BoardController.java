@@ -31,15 +31,21 @@ public class BoardController {
 		this.boardService = boardService;
 	}
 	
-	//전체 게시글 리스트
 	@RequestMapping(value={"/", "/index" , "/board/allBoardList"})
-    public ModelAndView allBoardList(HttpServletRequest request, Model model) {
-        ModelAndView mv = new ModelAndView();
-        List<BOARD_INFO> allBoardList = boardService.allBoardList();
-        mv.addObject("allBoardList", allBoardList);
-        mv.setViewName("/board/allBoardList"); 
-        return mv;
-    }
+	public ModelAndView allBoardList(HttpServletRequest request, Model model) {
+	    ModelAndView mv = new ModelAndView();
+	    List<BOARD_INFO> allBoardList = boardService.allBoardList();
+
+	    int totalRecords = allBoardList.size();
+	    int recordsPerPage = 10; // 페이지당 보여줄 게시글 수
+	    int totalPages = (int) Math.ceil((double) totalRecords / recordsPerPage);
+
+	    mv.addObject("allBoardList", allBoardList);
+	    mv.addObject("totalPages", totalPages); // 전체 페이지 수를 전달합니다.
+	    mv.setViewName("/board/allBoardList"); 
+	    return mv;
+	}
+
 	
 	//게시글 상세
 	@ResponseBody
@@ -118,7 +124,7 @@ public class BoardController {
 	    return result;
 	}
 	
-	//게시글수정
+	//게시글삭제
 	@ResponseBody
 	@RequestMapping("/board/boardDelete.act")
 	public String delete(Integer boardSeq) {
