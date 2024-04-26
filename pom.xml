@@ -137,6 +137,12 @@
     		<artifactId>spring-boot-configuration-processor</artifactId>
     		<optional>true</optional>
     	</dependency>
+    	<!-- 외장톰캣 설정 -->
+    	<dependency> 
+	        <groupId>org.springframework.boot</groupId> 
+	        <artifactId>spring-boot-starter-tomcat</artifactId> 
+	        <scope>provided</scope> 
+    	</dependency>
 	</dependencies>
 
 	<build>
