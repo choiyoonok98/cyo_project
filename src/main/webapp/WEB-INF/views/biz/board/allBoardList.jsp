@@ -83,7 +83,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>게시판 목록</h1>
+        <h1>게시글 목록</h1>
         
         <table>
             <thead>
